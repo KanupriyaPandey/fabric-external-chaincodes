@@ -3,20 +3,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ca-org2
-  name: ca-org2
-  namespace: hyperledger
+    app: ca
+  name: ca
+  namespace: org2
 spec:
   selector:
     matchLabels:
-      app: ca-org2
+      app: ca
   replicas: 1
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: ca-org2
+        app: ca
     spec:
       containers:
         - args:
@@ -29,7 +29,7 @@ spec:
             - name: FABRIC_CA_HOME
               value: /etc/hyperledger/fabric-ca-server
             - name: FABRIC_CA_SERVER_CA_NAME
-              value: ca-org2
+              value: ca
             - name: FABRIC_CA_SERVER_TLS_CERTFILE
               value: /etc/hyperledger/fabric-ca-server-config/ca.org2-cert.pem
             - name: FABRIC_CA_SERVER_TLS_ENABLED
@@ -37,16 +37,15 @@ spec:
             - name: FABRIC_CA_SERVER_TLS_KEYFILE
               value: /etc/hyperledger/fabric-ca-server-config/priv_sk
           image: hyperledger/fabric-ca:amd64-1.4.7
-          name: ca-org2
+          name: ca
           ports:
             - containerPort: 7054
           volumeMounts:
             - mountPath: /etc/hyperledger/fabric-ca-server-config
-              name: ca-org2-claim0
+              name: ca-claim0
               readOnly: true
       restartPolicy: Always
       volumes:
-        - name: ca-org2-claim0
+        - name: ca-claim0
           hostPath:
             path: /home/fabric-external-chaincodes/crypto-config/peerOrganizations/org2/ca/
-            type: Directory

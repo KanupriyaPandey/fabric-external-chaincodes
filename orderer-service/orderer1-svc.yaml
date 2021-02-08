@@ -5,7 +5,7 @@ metadata:
   labels:
     app: orderer1
   name: orderer1
-  namespace: hyperledger
+  namespace: consortium
 spec:
   type: ClusterIP
   ports:
@@ -23,7 +23,7 @@ metadata:
     app: orderer1
     metrics-service: "true"
   name: orderer1-metrics
-  namespace: hyperledger
+  namespace: consortium
 spec:
   type: ClusterIP
   ports:

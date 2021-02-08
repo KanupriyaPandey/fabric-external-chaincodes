@@ -3,9 +3,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: peer0-org1
-  name: peer0-org1
-  namespace: hyperledger
+    app: peer0
+  name: peer0
+  namespace: org1
 spec:
   type: ClusterIP
   ports:
@@ -13,17 +13,17 @@ spec:
     port: 7051
     targetPort: 7051
   selector:
-    app: peer0-org1
+    app: peer0
 ---
 #---------------- Peer0 Org1 Metrics Service ---------------
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: peer0-org1
+    app: peer0
     metrics-service: "true"
-  name: peer0-org1-metrics
-  namespace: hyperledger
+  name: peer0-metrics
+  namespace: org1
 spec:
   type: ClusterIP
   ports:
@@ -31,4 +31,4 @@ spec:
     port: 9443
     targetPort: 9443
   selector:
-    app: peer0-org1
+    app: peer0

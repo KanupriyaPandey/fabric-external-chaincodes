@@ -2,9 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
     name: builders-config
-    namespace: hyperledger
+    namespace: org1
     labels:
-        app: hyperledger
+        app: org1
 data:
     detect: |
         #!/bin/sh

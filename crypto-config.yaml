@@ -11,12 +11,16 @@ OrdererOrgs:
     # "Specs" - See PeerOrgs below for complete description
     # ---------------------------------------------------------------------------
     Specs:
-      - Hostname: orderer0
+      - Hostname: orderer0.consortium
         CommonName: orderer0
-      - Hostname: orderer1
+      - Hostname: orderer1.consortium
         CommonName: orderer1
-      - Hostname: orderer2
+      - Hostname: orderer2.consortium
         CommonName: orderer2
+      - Hostname: orderer3.consortium
+        CommonName: orderer3
+      - Hostname: orderer4.consortium
+        CommonName: orderer4
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
 # ---------------------------------------------------------------------------
@@ -28,10 +32,10 @@ PeerOrgs:
     Domain: org1
     EnableNodeOUs: true
     Specs:
-      - Hostname: peer0
-        CommonName: peer0-org1
-      # - Hostname: peer1
-      #   CommonName: peer1-org1
+      - Hostname: peer0.org1
+        CommonName: peer0
+      - Hostname: peer1.org1
+        CommonName: peer1
     # ---------------------------------------------------------------------------
     # "Specs"
     # ---------------------------------------------------------------------------
@@ -83,10 +87,10 @@ PeerOrgs:
     Domain: org2
     EnableNodeOUs: true
     Specs:
-      - Hostname: peer0
-        CommonName: peer0-org2
-      # - Hostname: peer1
-      #   CommonName: peer1-org2
+      - Hostname: peer0.org2
+        CommonName: peer0
+      - Hostname: peer1.org2
+        CommonName: peer1
     # Template:
     #   Count: 2
     Users:

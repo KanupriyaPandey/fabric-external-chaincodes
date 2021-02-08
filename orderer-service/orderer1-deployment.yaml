@@ -5,7 +5,7 @@ metadata:
   labels:
     app: orderer1
   name: orderer1
-  namespace: hyperledger
+  namespace: consortium
 spec:
   selector:
     matchLabels:
@@ -30,6 +30,8 @@ spec:
                       values:
                         - orderer0
                         - orderer2
+                        - orderer3
+                        - orderer4
                 topologyKey: "kubernetes.io/hostname"
       containers:
         - args:
@@ -85,7 +87,6 @@ spec:
         - name: orderer1-persistentdata
           hostPath:
             path: /home/storage/orderer1
-            type: DirectoryOrCreate
         - name: orderer1-claim0
           hostPath:
             path: /home/fabric-external-chaincodes/channel-artifacts/genesis.block
